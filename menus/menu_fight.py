@@ -1,5 +1,6 @@
 def menu_fight(self, player):
-    print("fight")
     print("Press 0 to return to menu")
-    if(player.user_input() == "0"):
+    user_input = player.user_input()
+    
+    if(user_input == "0"):
         self.menu_choice(player)

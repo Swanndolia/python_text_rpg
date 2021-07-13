@@ -1,5 +1,5 @@
-import player as Player
 import item as Item
+from item_list import *
 
 class Stuff():
     def __init__(self):
@@ -11,79 +11,44 @@ class Stuff():
         self.lhand = lhand
 
     def __repr__(self):
-        return f"\nHead: {self.head}\nbody: {self.body}\nlegs: {self.legs}\nboots: {self.boots}\nlhand: {self.lhand}\nrhand: {self.rhand}\n"
+        return f"\nHead: {self.head}\nBody: {self.body}\nLlegs: {self.legs}\nBoots: {self.boots}\nLeft Hand: {self.lhand}\nRight Hand: {self.rhand}\n"
     
     def set_warrior_stuff(self):
-        self.head = Item.default_warrior_head
-        self.body = Item.default_warrior_body
-        self.legs = Item.default_warrior_legs
-        self.boots = Item.default_warrior_boots
-        self.rhand = Item.default_warrior_weapon
-        self.lhand = Item.default_warrior_shield
+        self.head = default_warrior_head.default_warrior_head
+        self.body = default_warrior_body.default_warrior_body
+        self.legs = default_warrior_legs.default_warrior_legs
+        self.boots = default_warrior_boots.default_warrior_boots
+        self.rhand = default_warrior_weapon.default_warrior_weapon
+        self.lhand = default_warrior_shield.default_warrior_shield
 
 
     def set_aquero_stuff(self):
-        self.head = Item.default_aquero_head
-        self.body = Item.default_aquero_body
-        self.legs = Item.default_aquero_legs
-        self.boots = Item.default_aquero_boots
-        self.rhand = Item.default_aquero_weapon
+        self.head = default_aquero_head.default_aquero_head
+        self.body = default_aquero_body.default_aquero_body
+        self.legs = default_aquero_legs.default_aquero_legs
+        self.boots = default_aquero_boots.default_aquero_boots
+        self.rhand = default_aquero_weapon.default_aquero_weapon
         if(self.rhand.two_hand):
             self.lhand = self.rhand
     
     def set_rogue_stuff(self):
-        self.head = Item.default_rogue_head
-        self.body = Item.default_rogue_body
-        self.legs = Item.default_rogue_legs
-        self.boots = Item.default_rogue_boots
-        self.rhand = Item.default_rogue_weapon
-        self.lhand = Item.default_rogue_weapon
+        self.head = default_rogue_head.default_rogue_head
+        self.body = default_rogue_body.default_rogue_body
+        self.legs = default_rogue_legs.default_rogue_legs
+        self.boots = default_rogue_boots.default_rogue_boots
+        self.rhand = default_rogue_weapon.default_rogue_weapon
+        self.lhand = default_rogue_weapon.default_rogue_weapon
         if(self.rhand.two_hand):
             self.lhand = self.rhand
 
     def set_mage_stuff(self):
-        self.head = Item.default_mage_head
-        self.body = Item.default_mage_body
-        self.legs = Item.default_mage_legs
-        self.boots = Item.default_mage_boots
-        self.rhand = Item.default_mage_weapon
+        self.head = default_mage_head.default_mage_head
+        self.body = default_mage_body.default_mage_body
+        self.legs = default_mage_legs.default_mage_legs
+        self.boots = default_mage_boots.default_mage_boots
+        self.rhand = default_mage_weapon.default_mage_weapon
         if(self.rhand.two_hand):
             self.lhand = self.rhand
-
-    def equip_item(self, item, player):
-        if(item.slot == "head"):
-            if(self.head.name != ""):
-                Player.player.inventory.append(self.head)
-            self.head = item
-
-        elif(item.slot == "body"):
-            if(self.body.name != ""):
-                Player.player.inventory.append(self.body)
-            self.body = item
-
-        elif(item.slot == "legs"):
-            if(self.legs.name != ""):
-                Player.player.inventory.append(self.legs)
-            self.legs = item
-
-        elif(item.slot == "boots"):
-            if(self.boots.name != ""):
-                Player.player.inventory.append(self.boots)
-            self.boots = item
-
-        elif(item.slot == "rhand"):
-            if(self.rhand.name != ""):
-                Player.player.inventory.append(self.rhand)
-            self.rhand = item
-
-        elif(item.slot == "lhand"):
-            if(self.lhand.name != ""):
-                Player.player.inventory.append(self.lhand)
-            self.lhand = item
-
-        elif(item.slot == "anyhand"):
-            #TODO
-            return
 
 
 head = Item.Item()
@@ -92,5 +57,3 @@ legs = Item.Item()
 boots = Item.Item()
 lhand = Item.Item()
 rhand = Item.Item()
-
-stuff = Stuff()

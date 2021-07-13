@@ -1,53 +1,136 @@
 import stuff as Stuff
 from tools import clear_console as Tools
 
+
 class Player():
     def __init__(self):
         self.name = input("> What's ur name ? ")
         self.build = ""
         self.lvl = 1
         self.exp = 0
+        self.unasigned_stats = 12
         self.next_lvl_exp = 100
         self.health = 100
         self.mana = 100
         self.agility = 0
         self.strength = 0
         self.dexterity = 0
-        self.speed = 0
+        self.rapidity = 0
         self.luck = 0
         self.skills = []
-        self.stuff = Stuff.stuff
+        self.stuff = stuff
         self.inventory = []
 
     def __repr__(self):
-        return f"\nname: {self.name}\nclass: {self.build}\nnext level: {self.next_lvl_exp - self.exp} xp\nhealth: {self.health}\nmana: {self.mana}\nagility: {self.agility}\nstrength: {self.strength}\ndexterity: {self.dexterity}\nspeed: {self.speed}\nluck: {self.luck}\n"
+        return f"\n\nname: {self.name}\n\nclass: {self.build}\n\nnext level: {self.next_lvl_exp - self.exp} xp\n\nhealth: {self.health}\n\nmana: {self.mana}\n\nagility: {self.agility}\n\nstrength: {self.strength}\n\ndexterity: {self.dexterity}\n\nspeed: {self.rapidity}\n\nluck: {self.luck}\n\n"
 
     def user_input(self):
         user_input = input("> ").upper()
         return user_input
 
-    def build_choice(self, player):
+    def build_choice(self):
         Tools.clear_console()
-        print("Which class you prefer " + player.name +
-              " ? : Mage (M), Warrior (W), rogue (R), Aquero (A) \nCare you can't change this later !")
+        print("Which class you prefer " + self.name +
+              " ? : Mage (M), Warrior (W), rogue (R), Aquero (A) \n\nCare you can't change this later !")
         user_input = player.user_input()
         if user_input == "M":
-            Stuff.stuff.set_mage_stuff()
+            stuff.set_mage_stuff()
             return "Mage"
         elif user_input == "W":
-            Stuff.stuff.set_warrior_stuff()
+            stuff.set_warrior_stuff()
             return "Warrior"
         elif user_input == "R":
-            Stuff.stuff.set_rogue_stuff()
+            stuff.set_rogue_stuff()
             return "Rogue"
         elif user_input == "A":
-            Stuff.stuff.set_aquero_stuff()
+            stuff.set_aquero_stuff()
             return "Aquero"
         else:
             print("error, please use one of the following key : M, W, R, A")
-            self.build_choice(player)
+            self.build_choice()
+
+    def add_item_to_inventory(self, item):
+        player.inventory.append(item)
+
+    def equip_item(self, item):
+        if(item.slot == "head"):
+            if(stuff.head.name != ""):
+                self.inventory.append(stuff.head)
+            stuff.head = item
+
+        elif(item.slot == "body"):
+            if(stuff.body.name != ""):
+                self.inventory.append(stuff.body)
+            stuff.body = item
+
+        elif(item.slot == "legs"):
+            if(stuff.legs.name != ""):
+                self.inventory.append(stuff.legs)
+            stuff.legs = item
+
+        elif(item.slot == "boots"):
+            if(stuff.boots.name != ""):
+                self.inventory.append(stuff.boots)
+            stuff.boots = item
+
+        elif(item.slot == "rhand"):
+            if(stuff.rhand.name != ""):
+                self.inventory.append(stuff.rhand)
+            stuff.rhand = item
+
+        elif(item.slot == "lhand"):
+            if(stuff.lhand.name != ""):
+                self.inventory.append(stuff.lhand)
+            stuff.lhand = item
+
+        elif(item.slot == "anyhand"):
+            # TODO
+            return
+
+    def set_stats_points(self):
+
+        if(self.unasigned_stats != 0):
+            Tools.clear_console()
+            print("Remaining stats points: " + str(self.unasigned_stats) +
+                  f"\n\n(H) Health: {self.health}\n\n(M) Mana: {self.mana}\n\n(A) Agility: {self.agility}\n\n(S) Strength: {self.strength}\n\n(D) Dexterity: {self.dexterity}\n\n(R) Rapidity: {self.rapidity}\n\n(L) Luck: {self.luck}")
+            print("Press 0 to return to menu")
+            user_input = self.user_input()
+            if(user_input == "H"):
+                self.health += 10
+                self.unasigned_stats -= 1
+            elif(user_input == "M"):
+                self.mana += 10
+                self.unasigned_stats -= 1
+            elif(user_input == "A"):
+                self.agility += 1
+                self.unasigned_stats -= 1
+            elif(user_input == "S"):
+                self.strength += 1
+                self.unasigned_stats -= 1
+            elif(user_input == "R"):
+                self.rapidity += 1
+                self.unasigned_stats -= 1
+            elif(user_input == "D"):
+                self.dexterity += 1
+                self.unasigned_stats -= 1
+            elif(user_input == "L"):
+                self.luck += 1
+                self.unasigned_stats -= 1
+            elif(user_input == "0"):
+                return
+            self.set_stats_points()
+        else:
+            Tools.clear_console()
+            print("You don't have unasigned stats points, press enter to return to menu")
+            input()
+            return
+
+
+Tools.clear_console()
+
+stuff = Stuff.Stuff()
 
 player = Player()
 
 if(player.build == ""):
-    player.build = player.build_choice(player)
+    player.build = player.build_choice()

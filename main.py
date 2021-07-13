@@ -14,7 +14,8 @@ class Game():
         self.name = "GAME"
 
     def main_loop(self, player):
-        self.menu_choice(player)
+        while True:
+            self.menu_choice(player)
 
     def menu_choice(self, player):
         Tools.clear_console()
@@ -35,6 +36,5 @@ class Game():
         return
 
 game = Game()
-Tools.clear_console()
 
 game.main_loop(Player.player)
