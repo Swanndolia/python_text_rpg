@@ -10,5 +10,6 @@ class Enemy():
         self.agility = 0
         self.strength = 0
         self.dexterity = 0
-        self.speed = 0
+        self.rapidity = 0
         self.luck = 0
+        self.armor = 0

@@ -17,7 +17,7 @@ class Player():
         self.dexterity = 0
         self.rapidity = 0
         self.luck = 0
-        self.skills = []
+        self.spells = []
         self.stuff = stuff
         self.inventory = []
         self.armor = self.calc_player_armor()

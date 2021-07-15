@@ -10,14 +10,12 @@ class Game():
         self.name = "GAME"
 
     def main_loop(self, player):
-        while (player.health[0] > 0):
+        while True:
             self.menu_choice(player)
-        player = Player.Player()
-        self.main_loop(player)
 
     def menu_choice(self, player):
         Tools.clear_console()
-        print(f"What do you want to do {player.name} ?\nTravel (T), Inventory (I), Skills (S), Profile (P)")
+        print(f"What do you want to do {player.name} ?\nTravel (T), Inventory (I), Spells (S), Profile (P)")
         user_input = player.user_input()
         Tools.clear_console()
         if user_input == "T":
@@ -25,12 +23,16 @@ class Game():
         elif user_input == "I":
             menu.inventory(self, player)
         elif user_input == "S":
-            menu.skills(self, player)
+            menu.spells(self, player)
         elif user_input == "P":
             menu.profile(self, player)
         else:
             self.menu_choice(player)
         return
+
+    def restart(self):
+        player = Player.Player()
+        self.main_loop(player)
 
 game = Game()
 

@@ -12,7 +12,8 @@ def travel(self, player):
     print(f"You encountered a {enemy.name} lvl {enemy.lvl} {enemy.desc}\nWhat you wanna do {player.name} ? Fight (F), Explore More (E)\nElse, press 0 to return to menu")
     user_input = player.user_input()
     if (user_input == "F"):
-        fight(self, player, enemy, travel)
+        Tools.clear_console()   
+        fight(self, player, enemy)
     elif (user_input == "E"):
         travel(self, player)
     elif (user_input == "0"):
