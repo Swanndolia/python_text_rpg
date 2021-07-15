@@ -1,4 +1,4 @@
-def menu_profile(self, player):
+def profile(self, player):
     print("This is you:")
     print(player)
     print("Press 1 to set unnasigned stats points (" + str(player.unasigned_stats) + ")" )
@@ -9,4 +9,4 @@ def menu_profile(self, player):
     elif (user_input == "1"):
         player.set_stats_points()
     else:
-        menu_profile(self, player)
+        profile(self, player)

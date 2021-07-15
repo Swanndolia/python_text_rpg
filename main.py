@@ -1,7 +1,7 @@
 import player as Player
 import enemy as Enemy
 
-import menus
+import menu
 
 from tools import clear_console as Tools
 
@@ -22,13 +22,13 @@ class Game():
         user_input = player.user_input()
         Tools.clear_console()
         if user_input == "T":
-            menus.menu_travel(self, player)
+            menu.travel(self, player)
         elif user_input == "I":
-            menus.menu_inventory(self, player)
+            menu.inventory(self, player)
         elif user_input == "S":
-            menus.menu_skills(self, player)
+            menu.skills(self, player)
         elif user_input == "P":
-            menus.menu_profile(self, player)
+            menu.profile(self, player)
         else:
             self.menu_choice(player)
         return

@@ -1,4 +1,4 @@
-def menu_inventory(self, player):
+def inventory(self, player):
     print("This is your inventory:")
     for (i, item) in enumerate(player.inventory, start=1):
         print(i, item)
