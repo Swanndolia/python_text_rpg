@@ -1,9 +1,7 @@
 import area_list
 
 def travel(self, player):
-    print("Where you wanna go " + player.name +
-            " ? : Wilderness (W), Mountain (M), Desert (D), Cave (C), Town (T)")
-    print("Press 0 to return to menu")
+    print(f"Where you wanna go {player.name} ?\nWilderness (W), Mountain (M), Desert (D), Cave (C), Town (T), Menu (0)")
     user_input = player.user_input()
     if user_input == "W":
         area_list.wilderness.travel(self, player)
@@ -15,5 +13,7 @@ def travel(self, player):
         area_list.cave.travel(self, player)
     elif user_input == "T":
         area_list.town.travel(self, player)
+    elif user_input == "0":
+        return
     else:
         travel(self, player)

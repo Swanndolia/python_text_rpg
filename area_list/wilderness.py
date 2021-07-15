@@ -9,11 +9,7 @@ def travel(self, player):
     Tools.clear_console()
     selected_enemy = random.choice([x for x in dir(enemy_list) if not x.startswith('__')])
     enemy = getattr(enemy_list, selected_enemy).create_enemy(random.randint(1, 9))
-    print("You encountered a lvl " + str(enemy.lvl) +
-          " " + enemy.name + " " + enemy.desc)
-    print("What you wanna do " + player.name +
-          " ? : Fight (F), Explore More (E)")
-    print("Press 0 to return to menu")
+    print(f"You encountered a {enemy.name} lvl {enemy.lvl} {enemy.desc}\nWhat you wanna do {player.name} ? Fight (F), Explore More (E)\nElse, press 0 to return to menu")
     user_input = player.user_input()
     if (user_input == "F"):
         fight(self, player, enemy, travel)

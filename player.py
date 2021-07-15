@@ -23,7 +23,7 @@ class Player():
         self.armor = self.calc_player_armor()
 
     def __repr__(self):
-        return f"\n\nName: {self.name}\n\nClass: {self.build}\n\nGold: {self.gold}\n\nNext Level: {self.next_lvl_exp - self.exp} XP\n\nHealth: {self.health[0]} / {self.health[1]} \n\nMana: {self.mana[0]} / {self.mana[1]}\n\nAgility: {self.agility}\n\nStrength: {self.strength}\n\nDexterity: {self.dexterity}\n\nSpeed: {self.rapidity}\n\nLuck: {self.luck}\n\n"
+        return f"\nName: {self.name}\nClass: {self.build}\nLevel: {self.lvl}\nGold: {self.gold}\nNext Level: {self.next_lvl_exp - self.exp} XP\nHealth: {self.health[0]} / {self.health[1]} \nMana: {self.mana[0]} / {self.mana[1]}\nAgility: {self.agility}\nStrength: {self.strength}\nDexterity: {self.dexterity}\nSpeed: {self.rapidity}\nLuck: {self.luck}\n"
 
     def user_input(self):
         user_input = input("> ").upper()
@@ -31,8 +31,7 @@ class Player():
 
     def build_choice(self):
         Tools.clear_console()
-        print("Which class you prefer " + self.name +
-              " ? : Mage (M), Warrior (W), rogue (R), Aquero (A) \n\nCare you can't change this later !")
+        print(f"Which class you prefer {self.name} ?\nMage (M), Warrior (W), rogue (R), Aquero (A) \nCare you can't change this later !")
         user_input = self.user_input()
         if user_input == "M":
             stuff.set_mage_stuff()
@@ -47,7 +46,7 @@ class Player():
             stuff.set_aquero_stuff()
             return "Aquero"
         else:
-            print("error, please use one of the following key : M, W, R, A")
+            print("Error, please use one of the following key : M, W, R, A")
             self.build_choice()
 
     def add_item_to_inventory(self, item):
@@ -95,8 +94,7 @@ class Player():
 
         if(self.unasigned_stats != 0):
             Tools.clear_console()
-            print("Remaining stats points: " + str(self.unasigned_stats) +
-                  f"\n\n(H) Health: {self.health}\n\n(M) Mana: {self.mana[0]} / {self.mana[1]}\n\n(A) Agility: {self.agility}\n\n(S) Strength: {self.strength}\n\n(D) Dexterity: {self.dexterity}\n\n(R) Rapidity: {self.rapidity}\n\n(L) Luck: {self.luck}")
+            print(f"Remaining stats points: ({self.unasigned_stats})\n(H) Health: {self.health[0]} / {self.health[1]}\n(M) Mana: {self.mana[0]} / {self.mana[1]}\n(A) Agility: {self.agility}\n(S) Strength: {self.strength}\n(D) Dexterity: {self.dexterity}\n(R) Rapidity: {self.rapidity}\n(L) Luck: {self.luck}\n")
             print("Press 0 to return to menu")
             user_input = self.user_input()
             if(user_input == "H"):
@@ -125,7 +123,8 @@ class Player():
             self.set_stats_points()
         else:
             Tools.clear_console()
-            print("You don't have unasigned stats points, press enter to return to menu")
+            print(f"You don't have unasigned stats points\n(H) Health: {self.health[0]} / {self.health[1]}\n(M) Mana: {self.mana[0]} / {self.mana[1]}\n(A) Agility: {self.agility}\n(S) Strength: {self.strength}\n(D) Dexterity: {self.dexterity}\n(R) Rapidity: {self.rapidity}\n(L) Luck: {self.luck}")
+            
             input()
             return
 
