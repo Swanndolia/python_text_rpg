@@ -13,10 +13,10 @@ def travel(self, player):
     user_input = player.user_input()
     if (user_input == "F"):
         Tools.clear_console()   
-        fight(self, player, enemy)
+        return fight(self, player, enemy)
     elif (user_input == "E"):
-        travel(self, player)
+        return travel(self, player)
     elif (user_input == "0"):
         return
     else:
-        travel(self, player)
+        return travel(self, player)

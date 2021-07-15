@@ -8,10 +8,10 @@ class Player():
         self.lvl = 1
         self.exp = 0
         self.gold = 0
-        self.unasigned_stats = 12
+        self.unasigned_stats = 5
         self.next_lvl_exp = 100
-        self.health = [100, 100]
-        self.mana = [100, 100]
+        self.health = [50, 50]
+        self.mana = [10, 10]
         self.agility = 0
         self.strength = 0
         self.dexterity = 0
