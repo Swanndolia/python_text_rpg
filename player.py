@@ -8,6 +8,7 @@ class Player():
         self.build = ""
         self.lvl = 1
         self.exp = 0
+        self.gold = 0
         self.unasigned_stats = 12
         self.next_lvl_exp = 100
         self.health = 100
@@ -22,7 +23,7 @@ class Player():
         self.inventory = []
 
     def __repr__(self):
-        return f"\n\nname: {self.name}\n\nclass: {self.build}\n\nnext level: {self.next_lvl_exp - self.exp} xp\n\nhealth: {self.health}\n\nmana: {self.mana}\n\nagility: {self.agility}\n\nstrength: {self.strength}\n\ndexterity: {self.dexterity}\n\nspeed: {self.rapidity}\n\nluck: {self.luck}\n\n"
+        return f"\n\nName: {self.name}\n\nClass: {self.build}\n\nGold: {self.gold}\n\nNext Level: {self.next_lvl_exp - self.exp} XP\n\nHealth: {self.health}\n\nMana: {self.mana}\n\nAgility: {self.agility}\n\nStrength: {self.strength}\n\nDexterity: {self.dexterity}\n\nSpeed: {self.rapidity}\n\nLuck: {self.luck}\n\n"
 
     def user_input(self):
         user_input = input("> ").upper()

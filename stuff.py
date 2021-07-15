@@ -1,5 +1,5 @@
 import item as Item
-from item_list import *
+import item_list
 
 class Stuff():
     def __init__(self):
@@ -14,39 +14,39 @@ class Stuff():
         return f"\nHead: {self.head}\nBody: {self.body}\nLlegs: {self.legs}\nBoots: {self.boots}\nLeft Hand: {self.lhand}\nRight Hand: {self.rhand}\n"
     
     def set_warrior_stuff(self):
-        self.head = default_warrior_head.default_warrior_head
-        self.body = default_warrior_body.default_warrior_body
-        self.legs = default_warrior_legs.default_warrior_legs
-        self.boots = default_warrior_boots.default_warrior_boots
-        self.rhand = default_warrior_weapon.default_warrior_weapon
-        self.lhand = default_warrior_shield.default_warrior_shield
+        self.head = item_list.default_warrior_body.createItem()
+        self.body = item_list.default_warrior_body.createItem()
+        self.legs = item_list.default_warrior_legs.createItem()
+        self.boots = item_list.default_warrior_boots.createItem()
+        self.rhand = item_list.default_warrior_weapon.createItem()
+        self.lhand = item_list.default_warrior_shield.createItem()
 
 
     def set_aquero_stuff(self):
-        self.head = default_aquero_head.default_aquero_head
-        self.body = default_aquero_body.default_aquero_body
-        self.legs = default_aquero_legs.default_aquero_legs
-        self.boots = default_aquero_boots.default_aquero_boots
-        self.rhand = default_aquero_weapon.default_aquero_weapon
+        self.head = item_list.default_aquero_head.createItem()
+        self.body = item_list.default_aquero_body.createItem()
+        self.legs = item_list.default_aquero_legs.createItem()
+        self.boots = item_list.default_aquero_boots.createItem()
+        self.rhand = item_list.default_aquero_weapon.createItem()
         if(self.rhand.two_hand):
             self.lhand = self.rhand
     
     def set_rogue_stuff(self):
-        self.head = default_rogue_head.default_rogue_head
-        self.body = default_rogue_body.default_rogue_body
-        self.legs = default_rogue_legs.default_rogue_legs
-        self.boots = default_rogue_boots.default_rogue_boots
-        self.rhand = default_rogue_weapon.default_rogue_weapon
-        self.lhand = default_rogue_weapon.default_rogue_weapon
+        self.head = item_list.default_rogue_head.createItem()
+        self.body = item_list.default_rogue_body.createItem()
+        self.legs = item_list.default_rogue_legs.createItem()
+        self.boots = item_list.default_rogue_boots.createItem()
+        self.rhand = item_list.default_rogue_weapon.createItem()
+        self.lhand = item_list.default_rogue_weapon.createItem()
         if(self.rhand.two_hand):
             self.lhand = self.rhand
 
     def set_mage_stuff(self):
-        self.head = default_mage_head.default_mage_head
-        self.body = default_mage_body.default_mage_body
-        self.legs = default_mage_legs.default_mage_legs
-        self.boots = default_mage_boots.default_mage_boots
-        self.rhand = default_mage_weapon.default_mage_weapon
+        self.head = item_list.default_mage_head.createItem()
+        self.body = item_list.default_mage_body.createItem()
+        self.legs = item_list.default_mage_legs.createItem()
+        self.boots = item_list.default_mage_boots.createItem()
+        self.rhand = item_list.default_mage_weapon.createItem()
         if(self.rhand.two_hand):
             self.lhand = self.rhand
 
