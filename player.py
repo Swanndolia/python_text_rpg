@@ -1,18 +1,17 @@
 import stuff as Stuff
 from tools import clear_console as Tools
 
-
 class Player():
     def __init__(self):
         self.name = input("> What's ur name ? ")
-        self.build = ""
+        self.build = self.build_choice()
         self.lvl = 1
         self.exp = 0
         self.gold = 0
         self.unasigned_stats = 12
         self.next_lvl_exp = 100
-        self.health = 100
-        self.mana = 100
+        self.health = [100, 100]
+        self.mana = [100, 100]
         self.agility = 0
         self.strength = 0
         self.dexterity = 0
@@ -21,9 +20,10 @@ class Player():
         self.skills = []
         self.stuff = stuff
         self.inventory = []
+        self.armor = self.calc_player_armor()
 
     def __repr__(self):
-        return f"\n\nName: {self.name}\n\nClass: {self.build}\n\nGold: {self.gold}\n\nNext Level: {self.next_lvl_exp - self.exp} XP\n\nHealth: {self.health}\n\nMana: {self.mana}\n\nAgility: {self.agility}\n\nStrength: {self.strength}\n\nDexterity: {self.dexterity}\n\nSpeed: {self.rapidity}\n\nLuck: {self.luck}\n\n"
+        return f"\n\nName: {self.name}\n\nClass: {self.build}\n\nGold: {self.gold}\n\nNext Level: {self.next_lvl_exp - self.exp} XP\n\nHealth: {self.health[0]} / {self.health[1]} \n\nMana: {self.mana[0]} / {self.mana[1]}\n\nAgility: {self.agility}\n\nStrength: {self.strength}\n\nDexterity: {self.dexterity}\n\nSpeed: {self.rapidity}\n\nLuck: {self.luck}\n\n"
 
     def user_input(self):
         user_input = input("> ").upper()
@@ -33,7 +33,7 @@ class Player():
         Tools.clear_console()
         print("Which class you prefer " + self.name +
               " ? : Mage (M), Warrior (W), rogue (R), Aquero (A) \n\nCare you can't change this later !")
-        user_input = player.user_input()
+        user_input = self.user_input()
         if user_input == "M":
             stuff.set_mage_stuff()
             return "Mage"
@@ -52,6 +52,9 @@ class Player():
 
     def add_item_to_inventory(self, item):
         player.inventory.append(item)
+
+    def calc_player_armor(self):
+        return self.stuff.body.armor + self.stuff.boots.armor + self.stuff.head.armor + self.stuff.legs.armor + self.stuff.lhand.armor
 
     def equip_item(self, item):
         if(item.slot == "head"):
@@ -93,14 +96,14 @@ class Player():
         if(self.unasigned_stats != 0):
             Tools.clear_console()
             print("Remaining stats points: " + str(self.unasigned_stats) +
-                  f"\n\n(H) Health: {self.health}\n\n(M) Mana: {self.mana}\n\n(A) Agility: {self.agility}\n\n(S) Strength: {self.strength}\n\n(D) Dexterity: {self.dexterity}\n\n(R) Rapidity: {self.rapidity}\n\n(L) Luck: {self.luck}")
+                  f"\n\n(H) Health: {self.health}\n\n(M) Mana: {self.mana[0]} / {self.mana[1]}\n\n(A) Agility: {self.agility}\n\n(S) Strength: {self.strength}\n\n(D) Dexterity: {self.dexterity}\n\n(R) Rapidity: {self.rapidity}\n\n(L) Luck: {self.luck}")
             print("Press 0 to return to menu")
             user_input = self.user_input()
             if(user_input == "H"):
-                self.health += 10
+                self.health[1] += 10
                 self.unasigned_stats -= 1
             elif(user_input == "M"):
-                self.mana += 10
+                self.mana[1] += 10
                 self.unasigned_stats -= 1
             elif(user_input == "A"):
                 self.agility += 1
@@ -132,6 +135,3 @@ Tools.clear_console()
 stuff = Stuff.Stuff()
 
 player = Player()
-
-if(player.build == ""):
-    player.build = player.build_choice()

@@ -13,10 +13,13 @@ def travel(self, player):
           " " + enemy.name + " " + enemy.desc)
     print("What you wanna do " + player.name +
           " ? : Fight (F), Explore More (E)")
+    print("Press 0 to return to menu")
     user_input = player.user_input()
     if (user_input == "F"):
-        fight(player, enemy)
+        fight(self, player, enemy, travel)
     elif (user_input == "E"):
         travel(self, player)
     elif (user_input == "0"):
         return
+    else:
+        travel(self, player)

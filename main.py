@@ -10,8 +10,10 @@ class Game():
         self.name = "GAME"
 
     def main_loop(self, player):
-        while True:
+        while (player.health[0] > 0):
             self.menu_choice(player)
+        player = Player.Player()
+        self.main_loop(player)
 
     def menu_choice(self, player):
         Tools.clear_console()
