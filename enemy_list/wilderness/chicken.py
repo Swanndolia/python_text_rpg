@@ -1,6 +1,6 @@
 import enemy as Enemy
 
-def create_enemy(lvl):
+def create_enemy(lvl): 
     chicken = Enemy.Enemy()
     chicken.lvl = lvl
     chicken.health = 10 + lvl * 2

@@ -9,4 +9,4 @@ def create_enemy(lvl):
     wolf.reward_gold = 5 + round(lvl / 3)
     wolf.name = "Wolf"
     wolf.desc = "it seems really dangerous"
-    return wolf
+    return wolf 

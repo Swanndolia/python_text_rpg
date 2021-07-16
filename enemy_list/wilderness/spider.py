@@ -9,4 +9,4 @@ def create_enemy(lvl):
     spider.reward_gold = 5 + round(lvl / 3)
     spider.name = "Spider"
     spider.desc = "I should avoid her bites"
-    return spider
+    return spider 
