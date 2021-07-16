@@ -13,3 +13,4 @@ class Enemy():
         self.rapidity = 0
         self.luck = 0
         self.armor = 0
+        self.loot = []

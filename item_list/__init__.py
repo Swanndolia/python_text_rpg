@@ -1,24 +1,7 @@
-from item_list import default_aquero_body
-from item_list import default_aquero_boots
-from item_list import default_aquero_head
-from item_list import default_aquero_legs
-from item_list import default_aquero_weapon
-
-from item_list import default_mage_body
-from item_list import default_mage_boots
-from item_list import default_mage_head
-from item_list import default_mage_legs
-from item_list import default_mage_weapon
-
-from item_list import default_rogue_body
-from item_list import default_rogue_boots
-from item_list import default_rogue_head
-from item_list import default_rogue_legs
-from item_list import default_rogue_weapon
-
-from item_list import default_warrior_body
-from item_list import default_warrior_boots
-from item_list import default_warrior_head
-from item_list import default_warrior_legs
-from item_list import default_warrior_weapon
-from item_list import default_warrior_shield
+from item_list import body
+from item_list import boots
+from item_list import head
+from item_list import legs
+from item_list import weapon
+from item_list import shield
+from item_list import enemy_loot

@@ -1,0 +1,1 @@
+from item_list.shield import default_warrior
