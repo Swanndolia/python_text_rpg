@@ -1,7 +1,7 @@
 def inventory(self, player):
     print("This is your inventory:")
     for (i, item) in enumerate(player.inventory, start=1):
-        print(i, item)
+        print(f"Selection ID: {i} {item}")
     print("This is your equiped stuff:")
     print(player.stuff)
     print("Press 0 to return to menu")

@@ -1,4 +1,7 @@
 import enemy as Enemy
+import item_list.enemy_loot
+
+honey_10 = [100, item_list.enemy_loot.honey.createItem()]
 
 def create_enemy(lvl):
     bee = Enemy.Enemy()
@@ -9,4 +12,5 @@ def create_enemy(lvl):
     bee.reward_gold = 3 + round(lvl / 3)
     bee.name = "Bee"
     bee.desc = " buzzzzzz"
+    bee.loot.append(honey_10)
     return bee

@@ -88,6 +88,10 @@ def enemy_is_dead(self, player, enemy):
         player.lvl += 1
         print(f"Amazing ! you're now lvl {player.lvl}")
     player.mana[0] = player.mana[1]
+    for x in enemy.loot:
+        if(random.randint(1, 1000) <= x[0]):
+            player.add_item_to_inventory(x[1])
+            print(f"You've found {x[1].name} on the {enemy.name}")
     print("Press enter to return to menu")
     input()
 
