@@ -10,10 +10,18 @@ class Item():
 
     def __repr__(self):
         if(self.two_hand):
-            if_two_hands = "Two Handed\n"
+            if_two_hands = "\nTwo Handed"
         else:
             if_two_hands = ""
+        if(self.damage):
+            if_damage = "\ndamage: {self.damage}"
+        else:
+            if_damage = ""
+        if(self.armor):
+            if_armor = "\ndamage: {self.armor}"
+        else:
+            if_armor = ""
         if(self.name == ""):
             return "Empty"
         else:
-            return f"\nName: {self.name}\ndesc: {self.desc}\nvalue: {self.value}\ndamage: {self.damage}\narmor: {self.armor}\n" + if_two_hands
+            return f"\nName: {self.name}\ndesc: {self.desc}\nvalue: {self.value} {if_damage} {if_armor} {if_two_hands}"

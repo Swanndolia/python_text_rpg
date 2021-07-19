@@ -1,0 +1,1 @@
+from event_list.wilderness import encounter_trader

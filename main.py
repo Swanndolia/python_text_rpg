@@ -15,7 +15,7 @@ class Game():
 
     def menu_choice(self, player):
         Tools.clear_console()
-        print(f"What do you want to do {player.name} ?\nTravel (T), Inventory (I), Spells (S), Profile (P)")
+        print(f"What do you want to do {player.name} ?\n Travel (T), Inventory (I), Spells (S), Profile (P)")
         user_input = player.user_input()
         Tools.clear_console()
         if user_input == "T":

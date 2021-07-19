@@ -1,4 +1,4 @@
-class Skill():
+class Spells():
     def __init__(self):
         self.id = 0
         self.name = ""

@@ -31,7 +31,7 @@ class Player():
 
     def build_choice(self):
         Tools.clear_console()
-        print(f"Which class you prefer {self.name} ?\nMage (M), Warrior (W), rogue (R), Aquero (A) \nCare you can't change this later !")
+        print(f"Which class you prefer {self.name} ?\n Mage (M), Warrior (W), rogue (R), Aquero (A) \n  Care you can't change this later !")
         user_input = self.user_input()
         if user_input == "M":
             stuff.set_mage_stuff()
