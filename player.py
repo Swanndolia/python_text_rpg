@@ -1,5 +1,10 @@
+import pickle
+import sys
+
 import stuff as Stuff
+
 from tools import clear_console as Tools
+
 
 class Player():
     def __init__(self):
@@ -26,12 +31,17 @@ class Player():
         return f"\nName: {self.name}\nClass: {self.build}\nLevel: {self.lvl}\nGold: {self.gold}\nNext Level: {self.next_lvl_exp - self.exp} XP\nHealth: {self.health[0]} / {self.health[1]} \nMana: {self.mana[0]} / {self.mana[1]}\nAgility: {self.agility}\nStrength: {self.strength}\nDexterity: {self.dexterity}\nSpeed: {self.rapidity}\nLuck: {self.luck}\n"
 
     def user_input(self):
-        user_input = input("> ").upper()
-        return user_input
+        try:
+            user_input = input("> ").upper()
+            return user_input
+        except KeyboardInterrupt:
+            self.save_progress()
+            sys.exit(1)
 
     def build_choice(self):
         Tools.clear_console()
-        print(f"Which class you prefer {self.name} ?\n Mage (M), Warrior (W), rogue (R), Aquero (A) \n  Care you can't change this later !")
+        print(
+            f"Which class you prefer {self.name} ?\n Mage (M), Warrior (W), rogue (R), Aquero (A) \n  Care you can't change this later !")
         user_input = self.user_input()
         if user_input == "M":
             stuff.set_mage_stuff()
@@ -94,7 +104,8 @@ class Player():
 
         if(self.unasigned_stats != 0):
             Tools.clear_console()
-            print(f"Remaining stats points: ({self.unasigned_stats})\n(H) Health: {self.health[0]} / {self.health[1]}\n(M) Mana: {self.mana[0]} / {self.mana[1]}\n(A) Agility: {self.agility}\n(S) Strength: {self.strength}\n(D) Dexterity: {self.dexterity}\n(R) Rapidity: {self.rapidity}\n(L) Luck: {self.luck}\n")
+            print(
+                f"Remaining stats points: ({self.unasigned_stats})\n(H) Health: {self.health[0]} / {self.health[1]}\n(M) Mana: {self.mana[0]} / {self.mana[1]}\n(A) Agility: {self.agility}\n(S) Strength: {self.strength}\n(D) Dexterity: {self.dexterity}\n(R) Rapidity: {self.rapidity}\n(L) Luck: {self.luck}\n")
             print("Press 0 to return to menu")
             user_input = self.user_input()
             if(user_input == "H"):
@@ -123,14 +134,31 @@ class Player():
             self.set_stats_points()
         else:
             Tools.clear_console()
-            print(f"You don't have unasigned stats points\n(H) Health: {self.health[0]} / {self.health[1]}\n(M) Mana: {self.mana[0]} / {self.mana[1]}\n(A) Agility: {self.agility}\n(S) Strength: {self.strength}\n(D) Dexterity: {self.dexterity}\n(R) Rapidity: {self.rapidity}\n(L) Luck: {self.luck}")
-            
-            input()
+            print(
+                f"You don't have unasigned stats points\n(H) Health: {self.health[0]} / {self.health[1]}\n(M) Mana: {self.mana[0]} / {self.mana[1]}\n(A) Agility: {self.agility}\n(S) Strength: {self.strength}\n(D) Dexterity: {self.dexterity}\n(R) Rapidity: {self.rapidity}\n(L) Luck: {self.luck}")
+
+            self.user_input()
             return
+
+    def save_progress(self):
+        save_file = open('player_save_file.obj', 'wb')
+        pickle.dump(self, save_file)
+        save_file.close()
 
 
 Tools.clear_console()
 
 stuff = Stuff.Stuff()
 
-player = Player()
+try:
+    save_file = open('player_save_file.obj', 'rb')
+    print("We found a save do you want to load it (Y) or (N) ? Selecting 'N' and keep playing will erase it")
+    load_or_no = input().upper()
+    if(load_or_no == "Y"):
+        player = pickle.load(save_file)
+        save_file.close()
+    else:
+        save_file.close()
+        player = Player()
+except FileNotFoundError:
+    player = Player()

@@ -1,7 +1,8 @@
 import player as Player
 import enemy as Enemy
-
 import menu
+
+import sys
 
 from tools import clear_console as Tools
 

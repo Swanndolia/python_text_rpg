@@ -11,6 +11,6 @@ def heal(self, player):
             print("You've been successfully healed ! Press enter to continue")
         else:
             print(f"You dont have enough gold ({player.gold} / {cost}) ! Press enter to continue")
-        input()
+        player.user_input()
     else:
         heal(self, player)

@@ -71,7 +71,7 @@ def player_try_flee(self, player, enemy):
             enemy_attack(self, player, enemy)
         if(random.randint(0, 100) > 50):
             print("You got lucky and achieved to escape\nPress enter to return to menu")
-            input()
+            player.user_input()
             return True
         else:
             print("Unlucky ! The enemy predicted your move and didn't let you escape")
@@ -93,12 +93,11 @@ def enemy_is_dead(self, player, enemy):
             player.add_item_to_inventory(x[1])
             print(f"You've found {x[1].name} on the {enemy.name}")
     print("Press enter to return to menu")
-    input()
-
+    player.user_input()
 
 def player_is_dead(self, player, enemy):
     print(f"{enemy.name} has killed {player.name}")
     print("Press enter to start a new game")
-    input()
+    player.user_input()
     Tools.clear_console()
     return self.restart()
