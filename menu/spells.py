@@ -1,5 +1,6 @@
+import tools as Tools
+
 def spells(self, player):
-    print(f"This is the list of your spells: {player.spells}")
-    print("Press 0 to return to menu")
+    Tools.printer.show_player_spells(player)
     if(player.user_input() == "0"):
         self.menu_choice(player)

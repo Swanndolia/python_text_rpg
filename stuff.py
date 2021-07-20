@@ -1,5 +1,6 @@
 import item as Item
 import item_list
+import tools as Tools
 
 class Stuff():
     def __init__(self):
@@ -11,7 +12,7 @@ class Stuff():
         self.lhand = lhand
 
     def __repr__(self):
-        return f"\nHead: {self.head}\nBody: {self.body}\nLlegs: {self.legs}\nBoots: {self.boots}\nLeft Hand: {self.lhand}\nRight Hand: {self.rhand}\n"
+        return Tools.printer.repr_stuff(self)
     
     def set_warrior_stuff(self):
         self.head = item_list.head.default_warrior.createItem()

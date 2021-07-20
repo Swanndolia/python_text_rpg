@@ -1,10 +1,9 @@
 import player as Player
-import enemy as Enemy
+import enemy as Enemys
 import menu
-
 import sys
 
-from tools import clear_console as Tools
+import tools as Tools
 
 class Game():
     def __init__(self):
@@ -16,16 +15,16 @@ class Game():
 
     def menu_choice(self, player):
         Tools.clear_console()
-        print(f"What do you want to do {player.name} ?\n Travel (T), Inventory (I), Spells (S), Profile (P)")
+        Tools.printer.menu_choice(player)
         user_input = player.user_input()
         Tools.clear_console()
-        if user_input == "T":
+        if user_input == "1":
             menu.travel(self, player)
-        elif user_input == "I":
+        elif user_input == "2":
             menu.inventory(self, player)
-        elif user_input == "S":
+        elif user_input == "3":
             menu.spells(self, player)
-        elif user_input == "P":
+        elif user_input == "4":
             menu.profile(self, player)
         else:
             self.menu_choice(player)

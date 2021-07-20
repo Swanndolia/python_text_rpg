@@ -1,4 +1,4 @@
-from tools import clear_console as Tools
+import tools as Tools
 
 def travel(self, player):
     Tools.clear_console()

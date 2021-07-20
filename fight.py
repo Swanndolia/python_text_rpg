@@ -1,15 +1,12 @@
-from tools import clear_console as Tools
+import tools as Tools
 import random
 
 def fight(self, player, enemy):
     if(enemy.health > 0 and player.health[0] > 0):
-        print(
-            f"{player.name}: {player.health[0]} HP / {enemy.name}: {enemy.health} HP")
-        print(
-            f"What you want to do {player.name} ? Attack (A), Spell (S), Item (I), Flee (F)")
+        Tools.printer.fighting_turn(player, enemy)
         user_input = player.user_input()
         Tools.clear_console()
-        if (user_input == "A"):
+        if (user_input == "1"):
             if(player.rapidity > enemy.rapidity):
                 player_attack(self, player, enemy)
                 enemy_attack(self, player, enemy)
@@ -18,11 +15,11 @@ def fight(self, player, enemy):
                 enemy_attack(self, player, enemy)
                 player_attack(self, player, enemy)
                 fight(self, player, enemy)
-        elif (user_input == "S"):
+        elif (user_input == "2"):
             fight(self, player, enemy)
-        elif (user_input == "I"):
+        elif (user_input == "3"):
             fight(self, player, enemy)
-        elif (user_input == "F"):
+        elif (user_input == "4"):
             if(player_try_flee(self, player, enemy)):
                 return self.menu_choice(player)
             fight(self, player, enemy)

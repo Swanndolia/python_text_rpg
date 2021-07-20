@@ -1,14 +1,14 @@
-from tools import clear_console as Tools
+import tools as Tools
 import menu
 
 def travel(self, player):
     Tools.clear_console()
-    print(f"What you wanna do {player.name} ? Shop (S), Heal (H)\n Else, press 0 to return to menu")
+    Tools.printer.arrive_town(player)
     user_input = player.user_input()
-    if (user_input == "S"):
+    if (user_input == "1"):
         Tools.clear_console()
         menu.shop(self, player)
-    elif (user_input == "H"):
+    elif (user_input == "2"):
         Tools.clear_console()
         menu.heal(self, player)
     elif (user_input == "0"):

@@ -3,12 +3,12 @@ import sys
 
 import stuff as Stuff
 
-from tools import clear_console as Tools
+import tools as Tools
 
 
 class Player():
     def __init__(self):
-        self.name = input("> What's ur name ? ")
+        self.name = Tools.printer.whats_your_name()
         self.build = self.build_choice()
         self.lvl = 1
         self.exp = 0
@@ -28,11 +28,11 @@ class Player():
         self.armor = self.calc_player_armor()
 
     def __repr__(self):
-        return f"\nName: {self.name}\nClass: {self.build}\nLevel: {self.lvl}\nGold: {self.gold}\nNext Level: {self.next_lvl_exp - self.exp} XP\nHealth: {self.health[0]} / {self.health[1]} \nMana: {self.mana[0]} / {self.mana[1]}\nAgility: {self.agility}\nStrength: {self.strength}\nDexterity: {self.dexterity}\nSpeed: {self.rapidity}\nLuck: {self.luck}\n"
+        return Tools.printer.repr_player(self)
 
     def user_input(self):
         try:
-            user_input = input("> ").upper()
+            user_input = input(">>> ").upper()
             return user_input
         except KeyboardInterrupt:
             self.save_progress()
@@ -40,23 +40,21 @@ class Player():
 
     def build_choice(self):
         Tools.clear_console()
-        print(
-            f"Which class you prefer {self.name} ?\n Mage (M), Warrior (W), rogue (R), Aquero (A) \n  Care you can't change this later !")
+        Tools.printer.build_choice(self)
         user_input = self.user_input()
-        if user_input == "M":
+        if user_input == "1":
             stuff.set_mage_stuff()
             return "Mage"
-        elif user_input == "W":
+        elif user_input == "2":
             stuff.set_warrior_stuff()
             return "Warrior"
-        elif user_input == "R":
+        elif user_input == "3":
             stuff.set_rogue_stuff()
             return "Rogue"
-        elif user_input == "A":
+        elif user_input == "4":
             stuff.set_aquero_stuff()
             return "Aquero"
         else:
-            print("Error, please use one of the following key : M, W, R, A")
             self.build_choice()
 
     def add_item_to_inventory(self, item):
@@ -104,29 +102,27 @@ class Player():
 
         if(self.unasigned_stats != 0):
             Tools.clear_console()
-            print(
-                f"Remaining stats points: ({self.unasigned_stats})\n(H) Health: {self.health[0]} / {self.health[1]}\n(M) Mana: {self.mana[0]} / {self.mana[1]}\n(A) Agility: {self.agility}\n(S) Strength: {self.strength}\n(D) Dexterity: {self.dexterity}\n(R) Rapidity: {self.rapidity}\n(L) Luck: {self.luck}\n")
-            print("Press 0 to return to menu")
+            Tools.printer.assign_stats(self)
             user_input = self.user_input()
-            if(user_input == "H"):
+            if(user_input == "1"):
                 self.health[1] += 10
                 self.unasigned_stats -= 1
-            elif(user_input == "M"):
+            elif(user_input == "2"):
                 self.mana[1] += 10
                 self.unasigned_stats -= 1
-            elif(user_input == "A"):
+            elif(user_input == "3"):
                 self.agility += 1
                 self.unasigned_stats -= 1
-            elif(user_input == "S"):
+            elif(user_input == "4"):
                 self.strength += 1
                 self.unasigned_stats -= 1
-            elif(user_input == "R"):
+            elif(user_input == "5"):
                 self.rapidity += 1
                 self.unasigned_stats -= 1
-            elif(user_input == "D"):
+            elif(user_input == "6"):
                 self.dexterity += 1
                 self.unasigned_stats -= 1
-            elif(user_input == "L"):
+            elif(user_input == "7"):
                 self.luck += 1
                 self.unasigned_stats -= 1
             elif(user_input == "0"):
@@ -134,9 +130,7 @@ class Player():
             self.set_stats_points()
         else:
             Tools.clear_console()
-            print(
-                f"You don't have unasigned stats points\n(H) Health: {self.health[0]} / {self.health[1]}\n(M) Mana: {self.mana[0]} / {self.mana[1]}\n(A) Agility: {self.agility}\n(S) Strength: {self.strength}\n(D) Dexterity: {self.dexterity}\n(R) Rapidity: {self.rapidity}\n(L) Luck: {self.luck}")
-
+            Tools.printer.assign_stats(self)
             self.user_input()
             return
 
@@ -152,9 +146,9 @@ stuff = Stuff.Stuff()
 
 try:
     save_file = open('player_save_file.obj', 'rb')
-    print("We found a save do you want to load it (Y) or (N) ? Selecting 'N' and keep playing will erase it")
+    Tools.printer.save_found()
     load_or_no = input().upper()
-    if(load_or_no == "Y"):
+    if(load_or_no == "1"):
         player = pickle.load(save_file)
         save_file.close()
     else:

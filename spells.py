@@ -1,3 +1,5 @@
+import tools as Tools
+
 class Spells():
     def __init__(self):
         self.id = 0
@@ -7,4 +9,4 @@ class Spells():
         self.mp_cost = 0
 
     def __repr__(self):
-        return f"\nid: {self.id}\nname: {self.name}\ndesc: {self.desc}\ndamage: {self.damage}\nmp cost: {self.mp_cost}\n"
+        return Tools.printer.repr_spells(self)

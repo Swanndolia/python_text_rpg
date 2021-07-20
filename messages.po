@@ -1,0 +1,188 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-20 10:10+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: tools/printer.py:7
+#, python-brace-format
+msgid ""
+"{player.name}: {player.health[0]} HP / {enemy.name}: {enemy.health} HP\n"
+"What you want to do {player.name} ? Attack(1), Spell(2), Item(3), Flee(4)"
+msgstr ""
+
+#: tools/printer.py:12
+#, python-brace-format
+msgid ""
+"This is you:\n"
+"{player}\n"
+"Press 1 to set unnasigned stats points ({player.unasigned_stats})"
+msgstr ""
+
+#: tools/printer.py:17
+#, python-brace-format
+msgid ""
+"Where you wanna go {player.name} ?\n"
+" Wilderness (1), Mountain (2), Desert (3), Cave (4), Town (5), Menu (0)"
+msgstr ""
+
+#: tools/printer.py:21
+msgid "Trader"
+msgstr ""
+
+#: tools/printer.py:25
+msgid "I have a deal for you, lemme show you"
+msgstr ""
+
+#: tools/printer.py:30
+#, python-brace-format
+msgid ""
+"Do you want to trade:\n"
+" {trade[0]} \n"
+"\n"
+"for:\n"
+" {trade[1]}\n"
+"\n"
+"Accept (1), Deny (2)"
+msgstr ""
+
+#: tools/printer.py:35
+#, python-brace-format
+msgid "You successfully traded: {trade[0].name} for: {trade[1].name}"
+msgstr ""
+
+#: tools/printer.py:40
+#, python-brace-format
+msgid "Sorry but you don't have '{trade[0].name}' in ur inventory"
+msgstr ""
+
+#: tools/printer.py:44
+msgid "Oh okay sorry didnt't mean to bother you"
+msgstr ""
+
+#: tools/printer.py:49
+#, python-brace-format
+msgid "You dont have enough gold ({player.gold} / {cost}) !"
+msgstr ""
+
+#: tools/printer.py:53
+msgid "You've been successfully healed !"
+msgstr ""
+
+#: tools/printer.py:58
+#, python-brace-format
+msgid ""
+"Hello {player.name}, you currently have {player.health[0]} HP\n"
+"Press 1 to heal all your hp ({player.health[0]} / {player.health[1]}) it "
+"will cost you {cost} gold."
+msgstr ""
+
+#: tools/printer.py:63
+#, python-brace-format
+msgid "What you wanna do {player.name} ? Shop (1), Heal (2), Menu (0)"
+msgstr ""
+
+#: tools/printer.py:68
+#, python-brace-format
+msgid ""
+"You encountered a {enemy.name} lvl {enemy.lvl} {enemy.desc}\n"
+" What you wanna do {player.name} ? Fight (1), Explore More (2)\n"
+msgstr ""
+
+#: tools/printer.py:72
+#, python-brace-format
+msgid ""
+"A {event.name} stop you, {event.desc}\n"
+" What you wanna do {player.name} ? Accept (1), Deny (2)"
+msgstr ""
+
+#: tools/printer.py:77
+#, python-brace-format
+msgid ""
+"What do you want to do {player.name} ?\n"
+" Travel (1), Inventory (2), Spells (3), Profile (4)"
+msgstr ""
+
+#: tools/printer.py:82
+#, python-brace-format
+msgid ""
+"Remaining stats points: ({self.unasigned_stats})\n"
+"(1) Health: {self.health[0]} / {self.health[1]}\n"
+"(2) Mana: {self.mana[0]} / {self.mana[1]}\n"
+"(3) Agility: {self.agility}\n"
+"(4) Strength: {self.strength}\n"
+"(5) Dexterity: {self.dexterity}\n"
+"(6) Rapidity: {self.rapidity}\n"
+"(7) Luck: {self.luck}\n"
+msgstr ""
+
+#: tools/printer.py:87
+#, python-brace-format
+msgid ""
+"Which class you prefer {self.name} ?\n"
+" Mage (1), Warrior (2), rogue (3), Aquero (4) \n"
+"  Care you can't change this later !"
+msgstr ""
+
+#: tools/printer.py:91
+msgid "> What's ur name ? "
+msgstr ""
+
+#: tools/printer.py:95
+msgid ""
+"We found a save load it (1) ? or no (2) ?\n"
+" Selecting '2' and keep playing will erase it"
+msgstr ""
+
+#: tools/printer.py:99
+#, python-brace-format
+msgid ""
+"\n"
+"Head: {self.head}\n"
+"Body: {self.body}\n"
+"Llegs: {self.legs}\n"
+"Boots: {self.boots}\n"
+"Left Hand: {self.lhand}\n"
+"Right Hand: {self.rhand}\n"
+msgstr ""
+
+#: tools/printer.py:103
+#, python-brace-format
+msgid ""
+"\n"
+"id: {self.id}\n"
+"name: {self.name}\n"
+"desc: {self.desc}\n"
+"damage: {self.damage}\n"
+"mp cost: {self.mp_cost}\n"
+msgstr ""
+
+#: tools/printer.py:107
+msgid ""
+"\n"
+"Name: {self.name}\n"
+"Class: {self.build}\n"
+"Level: {self.lvl}\n"
+"Gold: {self.gold}\n"
+"Next Level: {self.next_lvl_exp - self.exp} XP\n"
+"Health: {self.health[0]} / {self.health[1]} \n"
+"Mana: {self.mana[0]} / {self.mana[1]}\n"
+"Agility: {self.agility}\n"
+"Strength: {self.strength}\n"
+"Dexterity: {self.dexterity}\n"
+"Speed: {self.rapidity}\n"
+"Luck: {self.luck}\n"
+msgstr ""
